@@ -9,6 +9,7 @@ getgenv().EspEnabled = false
 getgenv().TracersEnabled = false
 getgenv().NameEnabled = false
 getgenv().DistanceEnabled = false
+getgenv().HealthEnabled = false
 getgenv().BoxColor = Color3.fromRGB(255,255,255)
 getgenv().TracerColor = Color3.fromRGB(255,255,255)
 
@@ -40,7 +41,7 @@ local DeleteMob ={
 			Box = false;
 			Name = false;
 			Distance = false;
-			Health = true;
+			Health = false;
 
 			TeamCheck = false;
 
@@ -340,6 +341,7 @@ local function AddTracers(Player) -- Tracers Without Lib OMG !!!!
 		game:GetService("RunService").RenderStepped:Connect(function()
 			local function UpdateValues()
 				DeleteMob.ESP.Box.Box = getgenv().EspEnabled
+				DeleteMob.ESP.Box.Health = getgenv().HealthEnabled
 				DeleteMob.ESP.Tracers.Enabled = getgenv().TracersEnabled
 				DeleteMob.ESP.Box.Name = getgenv().NameEnabled
 				DeleteMob.ESP.Box.Distance = getgenv().DistanceEnabled
